@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<h:head>
+		<style>
+			.btn {
+				margin: 1px 3px;
+			}
+			
+			.menubtn {
+				padding: 4px;
+				margin: 0px 0px 3px 0px;
+				text-decoration: none;
+				text-transform: uppercase;
+				border-bottom: 3px solid transparent;
+				transition: border-bottom 0.4s;
+				font-weight: 300;
+				color: black;
+			}
+			
+			.menubtn:hover {
+				border-bottom: 3px solid gray;
+			}
+		</style>	
+	</h:head>
+	<h:body>
+	
+		<div id="munu">
+			<h:graphicImage library="img" name="jsfLogo.png"/>
+			
+			<div style="width: 500px; margin: 10px auto; text-align: center;">
+				<h:form>
+					<h:commandLink class="menubtn" value="Adiministração" action="cadUsuario?faces-redirect=true" immediate="true" rendered="#{usuariobean.permissao}"/>
+					<h:commandLink class="menubtn" value="Lançamentos" action="lancamento?faces-redirect=true" immediate="true"/>
+					<h:commandLink class="menubtn" value="Trocar Usuário" action="#{usuariobean.deslogarUsuario}" immediate="true"/>
+				</h:form>
+			</div>
+		</div>
+		
+		<div id="conteudo">
+			<ui:insert name="corpo"/>
+		</div>
+	</h:body>
+</html>
